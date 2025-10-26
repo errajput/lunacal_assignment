@@ -93,7 +93,34 @@ export default function Page() {
 
           {/* Divider */}
           <div className="h-1 bg-[rgba(255,255,255,0.05)] bg-linear-to-b from-[rgba(164,165,165,0.6)] to-[rgba(136,137,138,0.6) rounded-full mt-5 w-120 ml-12" />
-          <GalleryWidget />
+
+          {/* Gallery */}
+          <RightWidgets>
+            <div className="flex">
+              <div className="w-[8%] mt-5 ml-3">
+                {/* Floating icons */}
+                <div className="flex flex-col gap-22 text-gray-400">
+                  <Image
+                    src="/Vector.png"
+                    alt="gallery-image"
+                    width={18}
+                    height={14}
+                  />
+
+                  <Image
+                    src="/Frame-1000002250.png"
+                    alt="gallery-image"
+                    width={18}
+                    height={14}
+                  />
+                </div>
+              </div>
+              <div className="w-[92%] mt-[17px]">
+                <GalleryWidget />
+              </div>
+            </div>
+          </RightWidgets>
+          <div className="h-1 bg-[rgba(255,255,255,0.05)] bg-linear-to-b from-[rgba(164,165,165,0.6)] to-[rgba(136,137,138,0.6) rounded-full mt-5 w-120 ml-12" />
         </div>
       </div>
     </main>
