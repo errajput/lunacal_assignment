@@ -3,7 +3,6 @@ import Image from "next/image";
 import { useRef, useState } from "react";
 import RightWidgets from "./RightWidgets";
 import { HiOutlineQuestionMarkCircle } from "react-icons/hi";
-import { BsGrid3X3Gap } from "react-icons/bs";
 
 const sample = [
   "/Rectangle-5160.png",
@@ -37,8 +36,20 @@ export default function GalleryWidget() {
       <RightWidgets>
         {/* Floating icons */}
         <div className="absolute top-4 left-4 flex flex-col gap-3 text-gray-400">
-          <HiOutlineQuestionMarkCircle className="text-xl opacity-80 hover:text-white transition-colors duration-300" />
-          <BsGrid3X3Gap className="text-lg opacity-70 hover:text-white transition-colors duration-300" />
+          <div className="flex flex-col gap-22 text-gray-400">
+            <Image
+              src="/Vector.png"
+              alt="gallery-image"
+              width={18}
+              height={14}
+            />
+            <Image
+              src="/Frame-1000002250.png"
+              alt="gallery-image"
+              width={18}
+              height={14}
+            />
+          </div>
         </div>
 
         <div className="flex items-center justify-between mb-4">

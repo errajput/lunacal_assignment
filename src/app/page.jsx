@@ -1,12 +1,11 @@
 "use client";
 
 import React, { useState } from "react";
-
 import { HiOutlineQuestionMarkCircle } from "react-icons/hi";
-import { BsGrid3X3Gap } from "react-icons/bs";
 import RightWidgets from "@/components/RightWidgets";
 import TabsWidget from "@/components/TabsWidget";
 import GalleryWidget from "@/components/GalleryWidgets";
+import Image from "next/image";
 
 export default function Page() {
   const [activeTab, setActiveTab] = useState("Recommended");
@@ -29,34 +28,66 @@ export default function Page() {
         {/* Right column */}
         <div className="space-y-3">
           <RightWidgets>
-            {/* Tabs */}
-            <div className="flex items-start justify-between">
-              <TabsWidget
-                tabs={tabs}
-                active={activeTab}
-                onChange={setActiveTab}
-              />
-            </div>
+            <div className="flex">
+              <div className="w-[8%] mt-5 ml-3">
+                {/* Floating icons */}
+                <div className="flex flex-col gap-22 text-gray-400">
+                  <Image
+                    src="/Vector.png"
+                    alt="gallery-image"
+                    width={18}
+                    height={14}
+                  />
 
-            {/* Text content */}
-            <div className="mt-6 h-20 overflow-auto pr-3 text-gray-300 leading-7">
-              <p>
-                Hello! I am Dave, your sales rep here from Salesforce. I’ve been
-                working at this awesome company for 3 years now.
-              </p>
-              <p className="mt-3">
-                I was born and raised in Albany, NY & have been living in Santa
-                Carla for the past 10 years with my wife Tiffany and my
-                4-year-old twin daughters — Emma and Ella. Both of them are just
-                starting school, so my calendar is usually blocked between 9–10
-                AM.
-              </p>
-            </div>
+                  <Image
+                    src="/Frame-1000002250.png"
+                    alt="gallery-image"
+                    width={18}
+                    height={14}
+                  />
+                </div>
+              </div>
+              <div className="w-[92%] mt-[17px]">
+                {/* Tabs */}
+                <TabsWidget
+                  tabs={tabs}
+                  active={activeTab}
+                  onChange={setActiveTab}
+                />
 
-            {/* Floating icons */}
-            <div className="absolute top-4 left-4 flex flex-col gap-3 text-gray-400">
-              <HiOutlineQuestionMarkCircle className="text-xl opacity-80 hover:text-white transition-colors duration-300" />
-              <BsGrid3X3Gap className="text-lg opacity-70 hover:text-white transition-colors duration-300" />
+                {/* Text content */}
+                <div className="mt-6 h-40 overflow-auto pr-3 text-[#969696] leading-7 mr-[13px]">
+                  <p>
+                    Hello! I am Dave, your sales rep here from Salesforce. I
+                    have been working at this awesome company for 3 years now.
+                  </p>
+                  <p className="mt-3">
+                    I was born and raised in Albany, NY & have been living in
+                    Santa Carla for the past 10 years with my wife Tiffany and
+                    my 4-year-old twin daughters — Emma and Ella. Both of them
+                    are just starting school, so my calendar is usually blocked
+                    between 9-10 AM.
+                  </p>
+                  <p>
+                    Hello! I am Dave, your sales rep here from Salesforce. I
+                    have been working at this awesome company for 3 years now.
+                  </p>
+                  <p className="mt-3">
+                    I was born and raised in Albany, NY & have been living in
+                    Santa Carla for the past 10 years with my wife Tiffany and
+                    my 4-year-old twin daughters — Emma and Ella. Both of them
+                    are just starting school, so my calendar is usually blocked
+                    between 9-10 AM.
+                  </p>
+                  <p className="mt-3">
+                    I was born and raised in Albany, NY & have been living in
+                    Santa Carla for the past 10 years with my wife Tiffany and
+                    my 4-year-old twin daughters — Emma and Ella. Both of them
+                    are just starting school, so my calendar is usually blocked
+                    between 9-10 AM.
+                  </p>
+                </div>
+              </div>
             </div>
           </RightWidgets>
 
