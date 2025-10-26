@@ -7,17 +7,13 @@ body {
     Roboto, "Helvetica Neue", Arial;
 }
 
-.widget-scroll {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.12) transparent;
+::-webkit-scrollbar {
+  width: 7px;
 }
-.widget-scroll::-webkit-scrollbar {
-  height: 8px;
-  width: 8px;
-}
-.widget-scroll::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.06);
-  border-radius: 8px;
+
+::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(to bottom right, #888989, #4a4e54);
+  border-radius: 10px;
 }
 
 :root {
@@ -44,3 +40,4 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+/* TODO: Update Font Family for - Poppins */
