@@ -1,8 +1,6 @@
 "use client";
 import Image from "next/image";
 import { useRef, useState } from "react";
-import RightWidgets from "./RightWidgets";
-import { HiOutlineQuestionMarkCircle } from "react-icons/hi";
 
 const sample = [
   "/Rectangle-5160.png",
@@ -41,7 +39,10 @@ export default function GalleryWidget() {
         <div className="flex items-center gap-3">
           <button
             onClick={addImage}
-            className="px-4 py-2 rounded-full bg-[#ffffff]/5 backdrop-blur-sm hover:bg-[#ffffff]/10 transition-all duration-300"
+            className="px-5 py-3 rounded-full bg-[#ffffff]/5 backdrop-blur-sm hover:bg-[#ffffff]/10 transition-all duration-300 
+            uppercase font-bold text-xs
+            shadow-[-0.5px_-0.5px_6.9px_0_rgba(255,255,255,0.25),9px_10px_7.1px_0_rgba(0,0,0,0.4),inset_0px_0px_48.91px_0px_rgba(255,255,255,0.05),inset_0px_3.26px_3.26px_0px_rgba(255,255,255,0.15)]
+            "
           >
             + Add Image
           </button>
@@ -64,18 +65,24 @@ export default function GalleryWidget() {
 
       <div ref={containerRef} className="flex gap-3 overflow-hidden pb-2 ">
         {images.map((src, i) => (
-          <div
+          <Image
             key={i}
-            className="min-w-[165px] rounded-3xl overflow-hidden p-1 shadow-inner  hover:scale-[1.03] transition-transform duration-300"
-          >
-            <Image
-              src={src}
-              alt={`gallery-${i}`}
-              width={165}
-              height={139}
-              className="object-cover rounded-2xl"
-            />
-          </div>
+            src={src}
+            alt={`gallery-${i}`}
+            width={165}
+            height={139}
+            className="object-cover rounded-2xl 
+              
+              min-w-[165px] overflow-hidden p-1 shadow-inner 
+              transition-transform duration-300
+             hover:scale-[1.1]
+            hover:-rotate-5
+            filter 
+            saturate-0
+            hover:saturate-[0.95]
+            hover:sepia-[0.2]
+              "
+          />
         ))}
       </div>
     </>
