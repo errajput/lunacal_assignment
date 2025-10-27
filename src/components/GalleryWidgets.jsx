@@ -49,12 +49,12 @@ export default function GalleryWidget() {
 
   return (
     <>
-      <div className="flex items-center justify-between mb-4 mr-4">
+      <div className="flex items-center justify-between mb-4 mr-[23px]">
         <div className="px-6 py-3 ml-2 rounded-2xl bg-[#0f1112]/90 text-white font-medium shadow-inner">
           Gallery
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 mr-5">
           <button
             onClick={addImage}
             className="px-5 py-3 rounded-full bg-[#ffffff]/5 backdrop-blur-sm hover:bg-[#ffffff]/10 transition-all duration-300 
@@ -74,21 +74,22 @@ export default function GalleryWidget() {
         </div>
       </div>
 
-      <div className="min-h-42 mr-4">
-        <div ref={containerRef} className="flex overflow-hidden pb-2">
+      <div className="min-h-42 mr-3">
+        <div ref={containerRef} className="flex overflow-hidden pb-3 ">
           {images.map((src, i) => (
             <Image
               key={i}
               src={src}
               alt={`gallery-${i}`}
-              width={140}
+              width={159}
               height={139}
-              className="mt-6 ml-2 object-cover rounded-2xl 
-              filter saturate-0
-              min-w-[159px] overflow-hidden p-1 shadow-inner 
-              transition-transform duration-500
-              ease-in-out hover:scale-110 hover:-rotate-3 hover:-translate-y-2 hover:saturate-[0.95] hover:sepia-[0.2]
-              "
+              className="mt-6 ml-3 object-cover rounded-2xl 
+  min-w-[155px] overflow-hidden
+  filter saturate-0
+  transition-transform duration-500 ease-in-out
+  hover:scale-110 hover:-rotate-3 hover:-translate-y-2
+  hover:saturate-[0.95] hover:sepia-[0.2]
+  hover:shadow-[12px_13px_39px_9px_rgba(10,10,10,0.62),_-9.15px_-18.5px_54.89px_-142px_#617892]"
             />
           ))}
         </div>
