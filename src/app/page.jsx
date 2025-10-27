@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import { HiOutlineQuestionMarkCircle } from "react-icons/hi";
 import RightWidgets from "@/components/RightWidgets";
 import TabsWidget from "@/components/TabsWidget";
 import GalleryWidget from "@/components/GalleryWidgets";
@@ -12,12 +11,12 @@ export default function Page() {
   const tabs = ["About Me", "Experiences", "Recommended"];
 
   return (
-    <main className="min-h-screen bg-[#30383f] text-gray-200 md:p-12 p-6">
+    <main className="min-h-screen bg-[#282f35] text-gray-200 md:p-12 p-6">
       <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
         {/* Left half - empty card */}
         <div className="hidden md:block">
           <div
-            className="h-[560px] rounded-2xl border border-white/5 bg-linear-to-b from-[rgba(164,165,165,0.6)] to-[rgba(136,137,138,0.6)]"
+            className="h-[560px] rounded-2xl border border-white/5 bg-[#616161]"
             style={{
               boxShadow:
                 "inset 0 1px 0 rgba(255,255,255,0.02), 0 30px 60px rgba(2,6,10,0.7)",
@@ -28,7 +27,7 @@ export default function Page() {
         {/* Right column */}
         <div className="space-y-3">
           <RightWidgets>
-            <div className="flex">
+            <div className="flex bg-[#363C43] shadow-[5.67px_5.67px_3.78px_rgba(0,0,0,0.4)] rounded-2xl">
               <div className="w-[8%] mt-5 ml-3">
                 {/* Floating icons */}
                 <div className="flex flex-col gap-22 text-gray-400">
@@ -47,7 +46,7 @@ export default function Page() {
                   />
                 </div>
               </div>
-              <div className="w-[92%] mt-[17px]">
+              <div className="w-[92%] mt-[17px] ">
                 {/* Tabs */}
                 <TabsWidget
                   tabs={tabs}
@@ -92,11 +91,11 @@ export default function Page() {
           </RightWidgets>
 
           {/* Divider */}
-          <div className="h-1 bg-[rgba(255,255,255,0.05)] bg-linear-to-b from-[rgba(164,165,165,0.6)] to-[rgba(136,137,138,0.6) rounded-full mt-5 w-120 ml-12" />
+          <div className="h-1 bg-[rgba(255,255,255,0.05)] bg-linear-to-b from-[rgba(164,165,165,0.6)] to-[rgba(136,137,138,0.6) rounded-full mt-5 w-120 ml-12 shadow-[0_4px_4px_rgba(0,0,0,0.33)]" />
 
           {/* Gallery */}
           <RightWidgets>
-            <div className="flex">
+            <div className="flex bg-[#363C43] shadow-[5.67px_5.67px_3.78px_rgba(0,0,0,0.4)] rounded-2xl">
               <div className="w-[8%] mt-5 ml-3">
                 {/* Floating icons */}
                 <div className="flex flex-col gap-22 text-gray-400">
@@ -120,7 +119,7 @@ export default function Page() {
               </div>
             </div>
           </RightWidgets>
-          <div className="h-1 bg-[rgba(255,255,255,0.05)] bg-linear-to-b from-[rgba(164,165,165,0.6)] to-[rgba(136,137,138,0.6) rounded-full mt-5 w-120 ml-12" />
+          <div className="h-1 bg-[rgba(255,255,255,0.05)] bg-linear-to-b from-[rgba(164,165,165,0.6)] to-[rgba(136,137,138,0.6) rounded-full mt-5 w-120 ml-12 shadow-[0_4px_4px_rgba(0,0,0,0.33)]" />
         </div>
       </div>
     </main>
