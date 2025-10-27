@@ -7,7 +7,7 @@ import GalleryWidget from "@/components/GalleryWidgets";
 import Image from "next/image";
 
 export default function Page() {
-  const [activeTab, setActiveTab] = useState("Recommended");
+  const [activeTab, setActiveTab] = useState("About Me");
   const tabs = ["About Me", "Experiences", "Recommended"];
 
   return (
