@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
+import ScrollArrows from "./ScrollArrow";
 
 const sample = [
   "/Rectangle-5160.png",
@@ -12,6 +13,8 @@ const sample = [
 
 export default function GalleryWidget() {
   const [images, setImages] = useState(sample);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
   const containerRef = useRef(null);
 
   function addImage() {
@@ -29,10 +32,25 @@ export default function GalleryWidget() {
     containerRef.current?.scrollBy({ left: delta, behavior: "smooth" });
   }
 
+  // Update arrow button active state
+  useEffect(() => {
+    const container = containerRef.current;
+    const updateScroll = () => {
+      if (!container) return;
+      setCanScrollLeft(container.scrollLeft > 0);
+      setCanScrollRight(
+        container.scrollLeft + container.clientWidth < container.scrollWidth
+      );
+    };
+    container?.addEventListener("scroll", updateScroll);
+    updateScroll();
+    return () => container?.removeEventListener("scroll", updateScroll);
+  }, [images]);
+
   return (
     <>
-      <div className="flex items-center justify-between mb-4">
-        <div className="px-6 py-3 rounded-2xl bg-[#0f1112]/90 text-white font-medium shadow-inner">
+      <div className="flex items-center justify-between mb-4 mr-4">
+        <div className="px-6 py-3 ml-2 rounded-2xl bg-[#0f1112]/90 text-white font-medium shadow-inner">
           Gallery
         </div>
 
@@ -46,44 +64,34 @@ export default function GalleryWidget() {
           >
             + Add Image
           </button>
-          <div className="flex gap-2">
-            <button
-              onClick={() => scroll(-220)}
-              className="w-10 h-10 flex items-center justify-center rounded-full shadow-md bg-[#0f1112]/40 hover:bg-[#0f1112]/70 transition-all duration-300"
-            >
-              ◀
-            </button>
-            <button
-              onClick={() => scroll(220)}
-              className="w-10 h-10 flex items-center justify-center rounded-full shadow-md bg-[#0f1112]/40 hover:bg-[#0f1112]/70 transition-all duration-300"
-            >
-              ▶
-            </button>
-          </div>
+
+          <ScrollArrows
+            onLeftClick={() => scroll(-220)}
+            onRightClick={() => scroll(220)}
+            canScrollLeft={canScrollLeft}
+            canScrollRight={canScrollRight}
+          />
         </div>
       </div>
 
-      <div ref={containerRef} className="flex gap-3 overflow-hidden pb-2 ">
-        {images.map((src, i) => (
-          <Image
-            key={i}
-            src={src}
-            alt={`gallery-${i}`}
-            width={165}
-            height={139}
-            className="object-cover rounded-2xl 
-              
-              min-w-[165px] overflow-hidden p-1 shadow-inner 
-              transition-transform duration-300
-             hover:scale-[1.1]
-            hover:-rotate-5
-            filter 
-            saturate-0
-            hover:saturate-[0.95]
-            hover:sepia-[0.2]
+      <div className="min-h-42 mr-4">
+        <div ref={containerRef} className="flex overflow-hidden pb-2">
+          {images.map((src, i) => (
+            <Image
+              key={i}
+              src={src}
+              alt={`gallery-${i}`}
+              width={140}
+              height={139}
+              className="mt-6 ml-2 object-cover rounded-2xl 
+              filter saturate-0
+              min-w-[159px] overflow-hidden p-1 shadow-inner 
+              transition-transform duration-500
+              ease-in-out hover:scale-110 hover:-rotate-3 hover:-translate-y-2 hover:saturate-[0.95] hover:sepia-[0.2]
               "
-          />
-        ))}
+            />
+          ))}
+        </div>
       </div>
     </>
   );
